@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.strikers.mediclaim.dto.UserDto;
 import com.strikers.mediclaim.entity.PolicyClaim;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.service.UserService;
@@ -38,10 +39,10 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("")
-	public ResponseEntity<User> userLogin(@RequestBody User user) {
+	public ResponseEntity<User> userLogin(@RequestBody UserDto userDto) {
 		Logger.info("loginUser is used to verify the user");
-		if(user!=null) {
-			User user1 = userService.userLogin(user);
+		if(userDto!=null) {
+			User user1 = userService.userLogin(userDto);
 			if (user1!=null) {
 				return new ResponseEntity<>(user1, HttpStatus.OK);
 			}

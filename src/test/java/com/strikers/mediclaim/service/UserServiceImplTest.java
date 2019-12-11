@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import com.strikers.mediclaim.dto.UserDto;
 import com.strikers.mediclaim.entity.PolicyClaim;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.repository.PolicyClaimRepository;
@@ -30,6 +32,7 @@ public class UserServiceImplTest {
 	PolicyClaimRepository policyClaimRepository;
 
 	User user = new User();
+	UserDto userDto = new UserDto();
 	PolicyClaim policyClaim = new PolicyClaim();
 
 	@Before
@@ -39,6 +42,9 @@ public class UserServiceImplTest {
 		user.setPassword("sujal@123");
 		user.setStatus("approved");
 		user.setUserId(1);
+		
+		userDto.setUsername("test");
+		userDto.setPassword("sujal123");
 
 	}
 
@@ -46,7 +52,7 @@ public class UserServiceImplTest {
 	public void testLogin() {
 		Mockito.when(userRepository.findByUsernameAndPasswordAndStatus("Sujal", "sujal@123", "Success"))
 				.thenReturn(user);
-		userServiceImpl.userLogin(user);
+		userServiceImpl.userLogin(userDto);
 		assertEquals("approved", user.getStatus());
 
 	}

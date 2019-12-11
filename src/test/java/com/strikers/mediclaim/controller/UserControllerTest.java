@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.strikers.mediclaim.dto.UserDto;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.service.UserService;
 import com.strikers.mediclaim.util.StringConstant;
@@ -18,8 +20,6 @@ import com.strikers.mediclaim.util.StringConstant;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class UserControllerTest {
 	
-	//private static final Logger logger = LoggerFactory.getLogger(UserControllerTest.class);
-
 	@InjectMocks
 	private UserController userController;
 
@@ -27,6 +27,7 @@ public class UserControllerTest {
 	private UserService userService;
 
 	User user = new User();
+	UserDto userDto = new UserDto();
 	
 	@Before
 	public void setup() {
@@ -34,12 +35,15 @@ public class UserControllerTest {
 		user.setUsername("test");
 		user.setPassword("sujal123");
 		user.setRole(StringConstant.APPROVER_ROLE);
+		
+		userDto.setUsername("test");
+		userDto.setPassword("sujal123");
 	}
 	
 	@Test
 	public void testLoginUserNegative() {
-		Mockito.when(userService.userLogin(user)).thenReturn(user);
-		Integer result = userController.userLogin(user).getStatusCodeValue();
+		Mockito.when(userService.userLogin(userDto)).thenReturn(user);
+		Integer result = userController.userLogin(userDto).getStatusCodeValue();
 		assertEquals(200, result);
 	}
 	

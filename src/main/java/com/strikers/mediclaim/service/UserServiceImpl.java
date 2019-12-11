@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.strikers.mediclaim.dto.UserDto;
 import com.strikers.mediclaim.entity.PolicyClaim;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.repository.PolicyClaimRepository;
@@ -24,8 +25,8 @@ public class UserServiceImpl implements UserService {
 	private PolicyClaimRepository policyClaimRepository;
 
 	@Override
-	public User userLogin(User user) {
-		User user1 = userRepository.findByUsernameAndPasswordAndStatus(user.getUsername(), user.getPassword(),
+	public User userLogin(UserDto userDto) {
+		User user1 = userRepository.findByUsernameAndPasswordAndStatus(userDto.getUsername(), userDto.getPassword(),
 				StringConstant.ACTIVE_STATUS);
 		if (user1 != null)
 			return user1;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
 		Optional<User> optionaluser = userRepository.findById(userId);
 		if (optionaluser.isPresent()) {
 			List<PolicyClaim> policyClaims = policyClaimRepository.findAll();
-			if (policyClaims != null && !policyClaims.isEmpty()) {
+			if (!policyClaims.isEmpty()) {
 				if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.APPROVER_ROLE)) {
 					policyClaimList = policyClaims;
 				} else if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.SENIOR_APPROVER_ROLE)) {
