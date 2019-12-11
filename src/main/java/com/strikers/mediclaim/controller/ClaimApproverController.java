@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.strikers.mediclaim.dto.RequestClaimApproverDto;
 import com.strikers.mediclaim.dto.ResponseClaimApproverDto;
-import com.strikers.mediclaim.exception.CommonException;
 import com.strikers.mediclaim.service.ClaimApproverService;
 
 /**
@@ -45,7 +44,7 @@ public class ClaimApproverController {
 	 */
 	@PostMapping("/claimapproves/{approvedId}")
 	public ResponseEntity<ResponseClaimApproverDto> approveClaim(@PathVariable("approvedId") Integer approvedId,
-			@RequestBody RequestClaimApproverDto requestClaimApproverDto) throws CommonException {
+			@RequestBody RequestClaimApproverDto requestClaimApproverDto)  {
 		logger.info("Inside  ClaimApproverController:approveClaim");
 		ResponseClaimApproverDto responseClaimApproverDto = claimApproverService.approveClaim(approvedId,
 				requestClaimApproverDto);

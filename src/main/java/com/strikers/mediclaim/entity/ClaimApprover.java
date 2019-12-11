@@ -22,14 +22,17 @@ import lombok.Setter;
 public class ClaimApprover {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer claim_approver_id;
+	private Integer claimApproverId;
 	
 	@OneToOne
-	@JoinColumn(name="policy_claim_id")
+	@JoinColumn(name="policyClaimId")
 	private PolicyClaim policyClaim;
+	
 	@OneToOne
 	@JoinColumn(name = "approvedId")
 	private User approverId;
+	private User approvedId;
+	
 	private String status;
 
 }

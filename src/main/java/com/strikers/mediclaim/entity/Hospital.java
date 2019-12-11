@@ -11,8 +11,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Hospital is an entity class which have details about the hospital
+ * @author Hema
+ *
+ */
 @Entity
-@Table(name = "hosiptal")
+@Table(name = "hospital")
 @Setter
 @Getter
 @NoArgsConstructor

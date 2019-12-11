@@ -3,7 +3,6 @@ package com.strikers.mediclaim.service;
 
 import com.strikers.mediclaim.dto.RequestClaimApproverDto;
 import com.strikers.mediclaim.dto.ResponseClaimApproverDto;
-import com.strikers.mediclaim.exception.CommonException;
 
 /**
  * @author Vasavi
@@ -18,6 +17,6 @@ public interface ClaimApproverService {
 	 * @return ->responseClaimApproverDto
 	 * @throws -> CommandAcceptanceException
 	 */
-	public ResponseClaimApproverDto approveClaim(Integer approvedId, RequestClaimApproverDto requestClaimApproverDto) throws CommonException;
+	public ResponseClaimApproverDto approveClaim(Integer approvedId, RequestClaimApproverDto requestClaimApproverDto);
 
 }

@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.strikers.mediclaim.dto.RequestClaimApproverDto;
 import com.strikers.mediclaim.dto.ResponseClaimApproverDto;
-import com.strikers.mediclaim.exception.CommonException;
 import com.strikers.mediclaim.service.ClaimApproverServiceImpl;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -39,7 +38,7 @@ public class ClaimApproverControllerTest {
 	}
 
 	@Test
-	public void testApproveClaimNegative() throws CommonException {
+	public void testApproveClaimNegative()  {
 		logger.info("Inside the approveClaimTest method");
 
 		when(claimApproverService.approveClaim(1002, requestClaimApproverDto)).thenReturn(responseClaimApproverDto);

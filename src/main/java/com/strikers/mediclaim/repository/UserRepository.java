@@ -8,4 +8,6 @@ import com.strikers.mediclaim.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+	User findByUsernameAndPasswordAndStatus(String username, String password, String status);
+
 }
