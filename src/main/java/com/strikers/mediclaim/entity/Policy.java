@@ -20,8 +20,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class Policy {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer policyId;

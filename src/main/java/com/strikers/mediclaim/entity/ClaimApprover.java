@@ -25,11 +25,13 @@ public class ClaimApprover {
 	private Integer claim_approver_id;
 	
 	@OneToOne
-	@JoinColumn(name="policy_claim_id")
+	@JoinColumn(name="policyClaimId")
 	private PolicyClaim policyClaim;
+	
 	@OneToOne
 	@JoinColumn(name = "approvedId")
 	private User approvedId;
+	
 	private String status;
 
 }
