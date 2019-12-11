@@ -12,16 +12,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "hosiptal")
+@Table(name = "user")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hospital {
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer hospitalId;
-	private String hospitalName;
-	private String address;
+	private Integer userId;
+	private String userName;
+	private String password;
+	private String role;
+	private String status;
 
 }

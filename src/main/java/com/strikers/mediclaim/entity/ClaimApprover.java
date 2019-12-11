@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -12,16 +14,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "hosiptal")
+@Table(name = "approver")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hospital {
+public class ClaimApprover {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer hospitalId;
-	private String hospitalName;
-	private String address;
+	private Integer claim_approver_id;
+	
+	@OneToOne
+	@JoinColumn(name="policy_claim_id")
+	private PolicyClaim policyClaim;
+	@OneToOne
+	@JoinColumn(name = "approvedId")
+	private User approvedId;
+	private String status;
 
 }
