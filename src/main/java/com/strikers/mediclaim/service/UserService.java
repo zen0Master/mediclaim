@@ -7,6 +7,8 @@ import com.strikers.mediclaim.entity.User;
 
 public interface UserService {
 
-	List<PolicyClaim> userLogin(User user);
+	User userLogin(User user);
+
+	List<PolicyClaim> policyClaims(Integer userId);
 
 }

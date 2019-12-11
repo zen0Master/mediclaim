@@ -1,5 +1,7 @@
 package com.strikers.mediclaim.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +31,20 @@ public class PolicyClaim {
 	@JoinColumn(name="hospitalId")
 	private Hospital hospitalId;
 	private String hospitalName;
+	private Double claimAmount;
+	
+	private String name;
+	private String referenceNumber;
+	
+	private String policyNumber;
+	private String diagnosis;
+	
+	private LocalDate admissionDate;
+	private LocalDate dischargeDate;
+	private String dischargeSummary;
+	private String natureOfAilment;
+	private String claimStatus;
+	private LocalDate createdDate;
 	
 	
 }

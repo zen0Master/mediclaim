@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,15 +38,25 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping("/user/login")
-	public ResponseEntity<List<PolicyClaim>> userLogin(@RequestBody User user) {
+	public ResponseEntity<User> userLogin(@RequestBody User user) {
 		Logger.info("loginUser is used to verify the user");
 		if(user!=null) {
-			List<PolicyClaim> policyClaims = userService.userLogin(user);
-			if (policyClaims!=null) {
-				return new ResponseEntity<>(policyClaims, HttpStatus.OK);
+			User user1 = userService.userLogin(user);
+			if (user1!=null) {
+				return new ResponseEntity<>(user1, HttpStatus.OK);
 			}
 		}
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
+	
+	@GetMapping("{userId}")
+	public ResponseEntity<List<PolicyClaim>> policyClaims(@PathVariable("userId") Integer userId){
+		List<PolicyClaim> policyClaims = userService.policyClaims(userId);
+		if(policyClaims!=null && !policyClaims.isEmpty() ) {
+			return new ResponseEntity<>(policyClaims, HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<>(policyClaims, HttpStatus.NO_CONTENT);
+	}
+	
 	
 }
