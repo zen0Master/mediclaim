@@ -8,24 +8,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "policy")
+@Table(name = "approver")
 @Setter
 @Getter
-public class Policy {
-
+@NoArgsConstructor
+@AllArgsConstructor
+public class ClaimApprover {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer policyId;
-	private String policyNumber;
-	private String policyName;
-	private Double amount;
-
+	private Integer claim_approver_id;
+	
 	@OneToOne
-	@JoinColumn(name = "userId")
-	private User userId;
+	@JoinColumn(name="policyClaimId")
+	private PolicyClaim policyClaim;
+	
+	@OneToOne
+	@JoinColumn(name = "approvedId")
+	private User approvedId;
+	
+	private String status;
 
 }
