@@ -20,5 +20,8 @@ public class StringConstant {
 	public static final String SENIOR_APPROVER_ROLE = "SENIOR APPROVER";
 	
 	public static final Double POLICY_LIMIT=1000000D;
+	
+	public static final String IN_LIMIT = "Amount within "+POLICY_LIMIT;
+	public static final String EXCEED_LIMIT = "Amount exceeded "+POLICY_LIMIT;
 }
 

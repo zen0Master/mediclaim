@@ -34,22 +34,28 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<PolicyClaim> policyClaims(Integer userId) {
-		List<PolicyClaim> policyClaimList=null;
+		List<PolicyClaim> policyClaimList = null;
 		Optional<User> optionaluser = userRepository.findById(userId);
 		if (optionaluser.isPresent()) {
 			List<PolicyClaim> policyClaims = policyClaimRepository.findAll();
 			if (policyClaims != null && !policyClaims.isEmpty()) {
 				if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.APPROVER_ROLE)) {
+
 					policyClaimList = policyClaims.stream()
-							.filter(d -> d.getClaimAmount() < StringConstant.POLICY_LIMIT)
-							.collect(Collectors.toList());
+							.filter(policyClaim -> policyClaim.getClaimAmount() < StringConstant.POLICY_LIMIT)
+							.map(policyClaim -> {
+								policyClaim.setRemarks(StringConstant.IN_LIMIT);
+								return policyClaim;
+							}).collect(Collectors.toList());
 				} else {
 					policyClaimList = policyClaims.stream()
-							.filter(d -> d.getClaimAmount() >= StringConstant.POLICY_LIMIT)
-							.collect(Collectors.toList());
+							.filter(d -> d.getClaimAmount() >= StringConstant.POLICY_LIMIT).map(policyClaim -> {
+								policyClaim.setRemarks(StringConstant.EXCEED_LIMIT);
+								return policyClaim;
+							}).collect(Collectors.toList());
 				}
 			} else {
-				policyClaimList=Collections.emptyList();
+				policyClaimList = Collections.emptyList();
 			}
 		}
 		return policyClaimList;
