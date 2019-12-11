@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.strikers.mediclaim.entity.PolicyClaim;
@@ -37,7 +38,7 @@ public class UserController {
 	 * @param password
 	 * @return
 	 */
-	@PostMapping("/user/login")
+	@PostMapping("")
 	public ResponseEntity<User> userLogin(@RequestBody User user) {
 		Logger.info("loginUser is used to verify the user");
 		if(user!=null) {
@@ -49,13 +50,13 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
-	@GetMapping("{userId}")
-	public ResponseEntity<List<PolicyClaim>> policyClaims(@PathVariable("userId") Integer userId){
+	@GetMapping("/claims")
+	public ResponseEntity<List<PolicyClaim>> policyClaims(@RequestParam("userId") Integer userId){
 		List<PolicyClaim> policyClaims = userService.policyClaims(userId);
 		if(policyClaims!=null && !policyClaims.isEmpty() ) {
-			return new ResponseEntity<>(policyClaims, HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(policyClaims, HttpStatus.OK);
 		}
-		return new ResponseEntity<>(policyClaims, HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>( HttpStatus.NO_CONTENT);
 	}
 	
 	

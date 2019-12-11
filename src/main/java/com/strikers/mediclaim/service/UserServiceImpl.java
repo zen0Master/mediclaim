@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User userLogin(User user) {
-		User user1 = userRepository.findByUserNameAndPasswordAndStatus(user.getUserName(), user.getPassword(),
+		User user1 = userRepository.findByUsernameAndPasswordAndStatus(user.getUsername(), user.getPassword(),
 				StringConstant.ACTIVE_STATUS);
 		if (user1 != null)
 			return user1;
@@ -47,12 +47,14 @@ public class UserServiceImpl implements UserService {
 								policyClaim.setRemarks(StringConstant.IN_LIMIT);
 								return policyClaim;
 							}).collect(Collectors.toList());
-				} else {
+				} else if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.SENIOR_APPROVER_ROLE)) {
 					policyClaimList = policyClaims.stream()
 							.filter(d -> d.getClaimAmount() >= StringConstant.POLICY_LIMIT).map(policyClaim -> {
 								policyClaim.setRemarks(StringConstant.EXCEED_LIMIT);
 								return policyClaim;
 							}).collect(Collectors.toList());
+				} else {
+					policyClaimList = Collections.emptyList();
 				}
 			} else {
 				policyClaimList = Collections.emptyList();
