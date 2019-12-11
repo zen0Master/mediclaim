@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.strikers.mediclaim.entity.PolicyClaim;
 
 @Repository
-public interface PolicyClaimRepository extends JpaRepository<PolicyClaim, Integer> {
+public interface PolicyClaimRepository extends JpaRepository<PolicyClaim, Integer>{
 
 	PolicyClaim findByReferenceNumber(String referenceNumber);
 

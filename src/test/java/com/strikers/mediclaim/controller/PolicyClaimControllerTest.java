@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Before;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,6 +14,13 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import com.strikers.mediclaim.dto.TrackResponseDto;
 import com.strikers.mediclaim.exception.PolicyClaimNotFoundException;
+import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
+
+import com.strikers.mediclaim.dto.PolicyClaimRequestDto;
+import com.strikers.mediclaim.dto.PolicyClaimResponseDto;
+import com.strikers.mediclaim.entity.PolicyClaim;
+import com.strikers.mediclaim.exception.PolicyNumberNotFoundException;
 import com.strikers.mediclaim.service.PolicyClaimService;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
@@ -25,6 +33,9 @@ public class PolicyClaimControllerTest {
 	PolicyClaimService policyClaimService;
 
 	static TrackResponseDto trackResponseDto = new TrackResponseDto();
+	static PolicyClaim policyClaim=new PolicyClaim(); 
+	static PolicyClaimRequestDto policyClaimRequestDto=new PolicyClaimRequestDto();
+	static PolicyClaimResponseDto policyClaimResponseDto=new PolicyClaimResponseDto();
 
 	@Before
 	public void setUp() {
@@ -56,4 +67,20 @@ public class PolicyClaimControllerTest {
 		assertEquals(204, result);
 	}
 
+	
+	@Test
+	public void applyPolicyClaimPositiveTest() throws PolicyNumberNotFoundException {
+		BeanUtils.copyProperties(policyClaim, policyClaimRequestDto);
+		Mockito.when(policyClaimService.applyPolicyClaim(policyClaimRequestDto)).thenReturn(policyClaimResponseDto);
+		HttpStatus statuscode = policyClaimController.applyPolicyClaim(policyClaimRequestDto).getStatusCode();
+		assertEquals(HttpStatus.OK, statuscode);
+	}
+	
+	@Test
+	public void applyPolicyClaimNegativeTest() throws PolicyNumberNotFoundException {
+		Mockito.when(policyClaimService.applyPolicyClaim(policyClaimRequestDto)).thenReturn(null);
+		HttpStatus statuscode = policyClaimController.applyPolicyClaim(policyClaimRequestDto).getStatusCode();
+		assertEquals(HttpStatus.NOT_FOUND, statuscode);
+	}
+	
 }

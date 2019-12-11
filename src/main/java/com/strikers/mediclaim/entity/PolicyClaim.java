@@ -23,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PolicyClaim {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer policyClaimId;
@@ -36,10 +36,8 @@ public class PolicyClaim {
 	
 	private String name;
 	private String referenceNumber;
-	
 	private String policyNumber;
 	private String diagnosis;
-	
 	private LocalDate admissionDate;
 	private LocalDate dischargeDate;
 	private String dischargeSummary;
@@ -49,6 +47,4 @@ public class PolicyClaim {
 
 	@Transient
 	private String remarks;
-	
-
 }
