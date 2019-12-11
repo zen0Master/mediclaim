@@ -35,6 +35,10 @@ public class PolicyClaimServiceTest {
 
 	@Before
 	public void setUp() {
+		hospital.setHospitalId(1);
+		hospital.setHospitalName("Aravind");
+		hospital.setAddress("Pondicherry");
+		
 		policyClaim.setPolicyClaimId(1);
 		policyClaim.setReferenceNumber("REF10");
 		policyClaim.setName("Shakthi");
@@ -42,9 +46,8 @@ public class PolicyClaimServiceTest {
 		policyClaim.setDiagnosis("Laser");
 		policyClaim.setAdmissionDate(LocalDate.of(2019, 12, 10));
 		policyClaim.setDischargeDate(LocalDate.of(2019, 12, 11));
-		;
 		policyClaim.setClaimAmount(12000.0);
-		policyClaim.setHospitalId(1);
+		policyClaim.setHospital(hospital);
 		policyClaim.setDischargeSummary("Recovered");
 		policyClaim.setNatureOfAilment("Eye Operation");
 		policyClaim.setClaimStatus("Pending");
@@ -63,9 +66,6 @@ public class PolicyClaimServiceTest {
 		trackResponseDto.setClaimStatus("Pending");
 		trackResponseDto.setCreatedDate(LocalDate.of(2019, 12, 11));
 
-		hospital.setHospitalId(1);
-		hospital.setHospitalName("Aravind");
-		hospital.setAddress("Pondicherry");
 	}
 
 	@Test

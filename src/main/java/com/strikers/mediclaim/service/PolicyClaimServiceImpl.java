@@ -32,7 +32,7 @@ public class PolicyClaimServiceImpl implements PolicyClaimService {
 		PolicyClaim policyClaim = policyClaimRepository.findByReferenceNumber(referenceNumber);
 		TrackResponseDto trackResponseDto = new TrackResponseDto();
 		if (policyClaim != null) {
-			Hospital hospital = hospitalRepository.findByHospitalId(policyClaim.getHospitalId());
+			Hospital hospital = hospitalRepository.findByHospitalId(policyClaim.getHospital().getHospitalId());
 			trackResponseDto.setHospitalName(hospital.getHospitalName());
 			BeanUtils.copyProperties(policyClaim, trackResponseDto);
 			return trackResponseDto;
