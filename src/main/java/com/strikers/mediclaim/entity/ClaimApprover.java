@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "approver")
+@Table(name = "claim_approver")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -30,6 +30,7 @@ public class ClaimApprover {
 	
 	@OneToOne
 	@JoinColumn(name = "approvedId")
+	private User approverId;
 	private User approvedId;
 	
 	private String status;

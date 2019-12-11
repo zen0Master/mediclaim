@@ -27,19 +27,21 @@ public class PolicyClaim {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer policyClaimId;
-	 
+
 	@OneToOne
-	@JoinColumn(name="hospitalId")
+	@JoinColumn(name = "hospitalId")
 	private Hospital hospital;
 	private String hospitalName;
-	private Double claimAmount;
-	
+
 	private String name;
 	private String referenceNumber;
 	private String policyNumber;
 	private String diagnosis;
 	private LocalDate admissionDate;
 	private LocalDate dischargeDate;
+	private Double claimAmount;
+	private Integer hosipitalId;
+	private String natureOfAliment;
 	private String dischargeSummary;
 	private String natureOfAilment;
 	private String claimStatus;
