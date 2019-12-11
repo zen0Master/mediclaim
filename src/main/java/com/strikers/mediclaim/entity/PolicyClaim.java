@@ -8,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,9 +20,7 @@ public class PolicyClaim {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer policyClaimId;
-	@GeneratedValue(generator = "REF")
-	@GenericGenerator(name = "REF", strategy = "REF1000")
-	private Integer referenceNumber;
+	private String referenceNumber;
 	private String name;
 	private String policyNumber;
 	private String diagnosis;

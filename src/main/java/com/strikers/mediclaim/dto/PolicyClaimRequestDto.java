@@ -9,8 +9,6 @@ import lombok.Setter;
 @Setter
 public class PolicyClaimRequestDto {
 
-	private Integer policyClaimId;
-	private Integer referenceNumber;
 	private String name;
 	private String policyNumber;
 	private String diagnosis;
@@ -20,6 +18,4 @@ public class PolicyClaimRequestDto {
 	private Integer hospitalId;
 	private String dischargeSummary;
 	private String natureOfAilment;
-	private String claimStatus;
-	private LocalDate createdDate;
 }
