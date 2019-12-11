@@ -26,7 +26,6 @@ public class StringConstant {
 	public static final String EXCEED_LIMIT = "Amount exceeded "+POLICY_LIMIT;
 	
 	//Raise a claim
-	public static final String CLAIM_STATUS = "Pending";
     public static final String SUCCESS="Claim has been submitted successfully. Please note this reference number for future tracking";
     public static final String FAILURE="Policy number not found";
     public static final String NAME="Name is mandatory";
