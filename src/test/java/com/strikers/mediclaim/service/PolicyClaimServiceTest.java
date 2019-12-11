@@ -113,6 +113,7 @@ public class PolicyClaimServiceTest {
 		policyClaim.setReferenceNumber("MC12345");
 		policyClaim.setCreatedDate(LocalDate.of(2019, 10, 11));
 		policyClaim.setClaimStatus("Pending");
+		policyClaim.setHospital(hospital);
 		PolicyClaimResponseDto PolicyClaimResponseDtos= policyClaimServiceImpl.applyPolicyClaim(policyClaimRequestDto);
 		assertEquals(StringConstant.FAILURE, PolicyClaimResponseDtos.getMessage());
 	}
@@ -125,7 +126,8 @@ public class PolicyClaimServiceTest {
 		policyClaim.setReferenceNumber("MC12345");
 		policyClaim.setCreatedDate(LocalDate.of(2019, 10, 11));
 		policyClaim.setClaimStatus("Pending");
+		policyClaim.setHospital(hospital);
 		PolicyClaimResponseDto PolicyClaimResponseDtos= policyClaimServiceImpl.applyPolicyClaim(policyClaimRequestDto);
-		assertEquals(StringConstant.FAILURE, PolicyClaimResponseDtos.getMessage());
+		assertEquals(StringConstant.SUCCESS, PolicyClaimResponseDtos.getMessage());
 	}
 }
