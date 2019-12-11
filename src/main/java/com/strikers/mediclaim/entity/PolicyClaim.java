@@ -30,7 +30,8 @@ public class PolicyClaim {
 	 
 	@OneToOne
 	@JoinColumn(name="hospitalId")
-	private Hospital hospitalId;
+	private Hospital hospital;
+	
 	private String hospitalName;
 	private Double claimAmount;
 	

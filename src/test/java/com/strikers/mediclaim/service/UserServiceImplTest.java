@@ -13,8 +13,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import com.google.common.base.Optional;
 import com.strikers.mediclaim.entity.PolicyClaim;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.repository.PolicyClaimRepository;

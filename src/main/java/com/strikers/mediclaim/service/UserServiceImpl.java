@@ -40,16 +40,11 @@ public class UserServiceImpl implements UserService {
 			List<PolicyClaim> policyClaims = policyClaimRepository.findAll();
 			if (policyClaims != null && !policyClaims.isEmpty()) {
 				if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.APPROVER_ROLE)) {
-
-					policyClaimList = policyClaims.stream()
-							.filter(policyClaim -> policyClaim.getClaimAmount() < StringConstant.POLICY_LIMIT)
-							.map(policyClaim -> {
-								policyClaim.setRemarks(StringConstant.IN_LIMIT);
-								return policyClaim;
-							}).collect(Collectors.toList());
+					policyClaimList = policyClaims;
 				} else if (optionaluser.get().getRole().equalsIgnoreCase(StringConstant.SENIOR_APPROVER_ROLE)) {
 					policyClaimList = policyClaims.stream()
-							.filter(d -> d.getClaimAmount() >= StringConstant.POLICY_LIMIT).map(policyClaim -> {
+							.filter(policyClaim -> policyClaim.getClaimStatus().equalsIgnoreCase(StringConstant.PUSHBACK_STATUS))
+							.map(policyClaim -> {
 								policyClaim.setRemarks(StringConstant.EXCEED_LIMIT);
 								return policyClaim;
 							}).collect(Collectors.toList());
