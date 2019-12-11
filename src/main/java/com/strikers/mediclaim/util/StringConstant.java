@@ -7,18 +7,20 @@ package com.strikers.mediclaim.util;
  */
 public class StringConstant {
 
-    private StringConstant(){ }
+	private StringConstant() {
+	}
 
-    public static final String ACTIVE_STATUS = "ACTIVE";
+	public static final String ACTIVE_STATUS = "ACTIVE";
 	public static final String DEACTIVE_STATUS = "DEACTIVE";
-	
+
 	public static final String PENDING_STATUS = "PENDING";
 	public static final String APPROVE_STATUS = "APPROVE";
 	public static final String REJECT_STATUS = "REJECT";
-	public static final String PUSHBACK_STATUS = "PUSHBACK";
-	
+
 	public static final String APPROVER_ROLE = "APPROVER";
 	public static final String SENIOR_APPROVER_ROLE = "SENIOR APPROVER";
+	public static final String PUSHBACK_STATUS = "PUSHBACK";
+	
 	
 	public static final Double POLICY_LIMIT=100000D;
 	
@@ -36,5 +38,12 @@ public class StringConstant {
     public static final String CLAIM_AMOUNT="claimAmount is mandatory";
     public static final String DISCHARGE_SUMMARY="dischargeSummary is mandatory";
     public static final String NATURE_OF_AILMENT="natureOfAilment is mandatory";
+    
+    //Tracking the status
+    public static final String POLICY_CLAIM_NOT_FOUND = "No Policy Claim in this referenceNumber";
+	public static final String HOSPITAL_LIST_NOT_FOUND = "No Policy Claim in this referenceNumber";
 }
+
+
+	
 

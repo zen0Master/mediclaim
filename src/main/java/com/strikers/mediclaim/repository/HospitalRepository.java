@@ -8,4 +8,6 @@ import com.strikers.mediclaim.entity.Hospital;
 @Repository
 public interface HospitalRepository extends JpaRepository<Hospital, Integer> {
 
+	Hospital findByHospitalId(Integer hospitalId);
+
 }

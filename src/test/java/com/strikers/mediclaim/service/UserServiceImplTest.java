@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.strikers.mediclaim.dto.UserDto;
+
 import com.strikers.mediclaim.entity.PolicyClaim;
 import com.strikers.mediclaim.entity.User;
 import com.strikers.mediclaim.repository.PolicyClaimRepository;
@@ -45,7 +46,6 @@ public class UserServiceImplTest {
 		
 		userDto.setUsername("test");
 		userDto.setPassword("sujal123");
-
 	}
 
 	@Test

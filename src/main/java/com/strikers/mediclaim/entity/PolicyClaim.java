@@ -31,6 +31,7 @@ public class PolicyClaim {
 	@OneToOne
 	@JoinColumn(name="hospitalId")
 	private Hospital hospital;
+	private String hospitalName;
 	private Double claimAmount;
 	
 	private String name;
@@ -43,8 +44,7 @@ public class PolicyClaim {
 	private String natureOfAilment;
 	private String claimStatus;
 	private LocalDate createdDate;
-	
+
 	@Transient
 	private String remarks;
-
 }
