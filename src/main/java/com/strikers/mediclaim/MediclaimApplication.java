@@ -9,5 +9,4 @@ public class MediclaimApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MediclaimApplication.class, args); //NOSONAR
 	}
-
 }
