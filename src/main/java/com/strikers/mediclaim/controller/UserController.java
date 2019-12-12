@@ -33,7 +33,7 @@ public class UserController {
 
 	
 	/**
-	 * This method is used to login for the Approver and senior approver
+	 * @description This method is used to login for the Approver and senior approver
 	 * @param userDto
 	 * @return
 	 */
@@ -50,7 +50,7 @@ public class UserController {
 	}
 	
 	/**
-	 * This method is used to filter the mediclaim
+	 * @description This method is used to filter the mediclaim
 	 * based on Policy Limit of Approver
 	 * @param userId
 	 * @return

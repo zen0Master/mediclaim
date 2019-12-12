@@ -4,7 +4,11 @@ import org.springframework.stereotype.Component;
 
 import com.strikers.mediclaim.dto.PolicyClaimRequestDto;
 import com.strikers.mediclaim.util.ClaimValidator;
-
+/**
+ * 
+ * @author Sujal
+ *
+ */
 @Component("claimValidator")
 public class ClaimValidatorImpl implements ClaimValidator<PolicyClaimRequestDto> {
 

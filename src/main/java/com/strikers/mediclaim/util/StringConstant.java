@@ -1,5 +1,10 @@
 package com.strikers.mediclaim.util;
 
+/**
+ * 
+ * @author Sujal
+ *
+ */
 public class StringConstant {
 	public StringConstant() {
 	}
