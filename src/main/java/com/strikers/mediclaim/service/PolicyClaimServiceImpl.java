@@ -23,6 +23,7 @@ import com.strikers.mediclaim.repository.PolicyClaimRepository;
 import com.strikers.mediclaim.repository.PolicyRepository;
 import com.strikers.mediclaim.util.ClaimValidator;
 import com.strikers.mediclaim.util.StringConstant;
+import com.strikers.mediclaim.util.Utils;
 
 @Service
 public class PolicyClaimServiceImpl implements PolicyClaimService {
@@ -56,8 +57,8 @@ public class PolicyClaimServiceImpl implements PolicyClaimService {
 		TrackResponseDto trackResponseDto = new TrackResponseDto();
 		if (policyClaim != null) {
 			Hospital hospital = hospitalRepository.findByHospitalId(policyClaim.getHospital().getHospitalId());
-			trackResponseDto.setHospitalName(hospital.getHospitalName());
 			BeanUtils.copyProperties(policyClaim, trackResponseDto);
+			trackResponseDto.setHospitalName(hospital.getHospitalName());
 			return trackResponseDto;
 
 		} else {
@@ -77,13 +78,16 @@ public class PolicyClaimServiceImpl implements PolicyClaimService {
 	@Override
 	public PolicyClaimResponseDto applyPolicyClaim(PolicyClaimRequestDto policyClaimRequestDto)
 			throws PolicyNumberNotFoundException {
+
 		PolicyClaimResponseDto policyClaimResponseDto = new PolicyClaimResponseDto();
+
 		if(claimValidator.validate(policyClaimRequestDto)) {
+//			logger.debug("II "+policyClaimRequestDto.getDiagnosis());
 			PolicyClaim policyClaim = new PolicyClaim();
 			Optional<Policy> policyNumber = policyRepository.findByPolicyNumber(policyClaimRequestDto.getPolicyNumber());
 			if (policyNumber.isPresent()) {
 				logger.info("Got the policy number");
-				String referenceNumber = "MC" + policyClaimRequestDto.getPolicyNumber();
+				String referenceNumber = "MC123" + Utils.generateRandom(1000000);
 				policyClaim.setReferenceNumber(referenceNumber);
 				policyClaim.setClaimStatus(StringConstant.PENDING_STATUS);
 				LocalDate createdDate = LocalDate.now();

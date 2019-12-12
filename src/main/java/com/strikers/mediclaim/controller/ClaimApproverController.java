@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.strikers.mediclaim.dto.RequestClaimApproverDto;
 import com.strikers.mediclaim.dto.ResponseClaimApproverDto;
 import com.strikers.mediclaim.service.ClaimApproverService;
+import com.strikers.mediclaim.util.StringConstant;
 
 /**
  * @author Vasavi
@@ -44,15 +45,18 @@ public class ClaimApproverController {
 	 */
 	@PostMapping("/claimapproves/{approvedId}")
 	public ResponseEntity<ResponseClaimApproverDto> approveClaim(@PathVariable("approvedId") Integer approvedId,
-			@RequestBody RequestClaimApproverDto requestClaimApproverDto)  {
+			@RequestBody RequestClaimApproverDto requestClaimApproverDto) {
 		logger.info("Inside  ClaimApproverController:approveClaim");
 		ResponseClaimApproverDto responseClaimApproverDto = claimApproverService.approveClaim(approvedId,
 				requestClaimApproverDto);
-		if (responseClaimApproverDto.getMessage().equalsIgnoreCase("SUCCESS")) {
-			responseClaimApproverDto.setMessage("claim approved successfully");
+		if (responseClaimApproverDto.getMessage().equalsIgnoreCase(StringConstant.ASSIGN_STATUS)) {
+			responseClaimApproverDto.setMessage(StringConstant.CLAIM_ASSIGN);
 			responseClaimApproverDto.setStatusCode("200");
-		}else {
-			responseClaimApproverDto.setMessage("claim approved failed");
+		} else if (responseClaimApproverDto.getMessage().equalsIgnoreCase(StringConstant.SUCCESS)) {
+			responseClaimApproverDto.setMessage(StringConstant.CLAIM_APPROVE_SUCCESS);
+			responseClaimApproverDto.setStatusCode("200");
+		} else {
+			responseClaimApproverDto.setMessage(StringConstant.CLAIM_REJECTED);
 			responseClaimApproverDto.setStatusCode("400");
 		}
 		return new ResponseEntity<>(responseClaimApproverDto, HttpStatus.OK);

@@ -1,6 +1,7 @@
 package com.strikers.mediclaim.util;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 /**
  * 
@@ -21,4 +22,15 @@ public class Utils {
 		return LocalDate.now();
 	}
 
+	private static final Random random = new Random();
+
+	/**
+	 * generateRandom()
+	 *
+	 * @param size
+	 * @return
+	 */
+	public static int generateRandom(int size) {
+		return random.nextInt(size);
+	}
 }

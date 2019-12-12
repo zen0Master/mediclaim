@@ -50,23 +50,30 @@ public class ClaimApproverServiceImpl implements ClaimApproverService {
 	 */
 	public ResponseClaimApproverDto approveClaim(Integer approvedId, RequestClaimApproverDto requestClaimApproverDto) {
 		ResponseClaimApproverDto responseClaimApproveDto = new ResponseClaimApproverDto();
+		String flag="";
+		
 		Optional<User> optionalUser = userRepository.findById(approvedId);
 		//logger.debug(optionalUser.get().getUserName());
-		if (optionalUser!=null && optionalUser.isPresent()) {
+		if (optionalUser.isPresent()) {
 			Optional<PolicyClaim> optionalPolicyClaim = policyClaimRespository
 					.findById(requestClaimApproverDto.getPolicyClaimId());
 			if (optionalPolicyClaim.isPresent()) {
 				PolicyClaim policyClaim = optionalPolicyClaim.get();
 				if (policyClaim.getClaimStatus().equalsIgnoreCase(StringConstant.PENDING_STATUS)
 						&& requestClaimApproverDto.getStatus().equalsIgnoreCase(StringConstant.APPROVE_STATUS)) {
+					if(policyClaim.getClaimAmount()>StringConstant.POLICY_LIMIT) {
 					logger.debug(policyClaim.getClaimStatus());
-
-					policyClaim.setClaimStatus(StringConstant.APPROVE_STATUS);
-				}else if(requestClaimApproverDto.getStatus().equalsIgnoreCase(StringConstant.PUSHBACK_STATUS)){
-					policyClaim.setClaimStatus(StringConstant.PUSHBACK_STATUS);
+						policyClaim.setClaimStatus(StringConstant.ASSIGN_STATUS);
+						flag=StringConstant.ASSIGN_STATUS;
+					}else {
+						policyClaim.setClaimStatus(StringConstant.APPROVE_STATUS);
+					}
+				}else if(requestClaimApproverDto.getStatus().equalsIgnoreCase(StringConstant.ASSIGN_STATUS)){
+					policyClaim.setClaimStatus(StringConstant.ASSIGN_STATUS);
 				}
 				else {
 					policyClaim.setClaimStatus(StringConstant.REJECT_STATUS);
+					flag=StringConstant.REJECT_STATUS;
 				}
 			 	PolicyClaim policyClaim2=policyClaimRespository.save(policyClaim);
 				if(policyClaim2!=null) {
@@ -76,7 +83,12 @@ public class ClaimApproverServiceImpl implements ClaimApproverService {
 					claimApprover.setStatus(StringConstant.ACTIVE_STATUS);
 					ClaimApprover claimApprover2= claimApproverRepository.save(claimApprover);
 					if(claimApprover2!=null) {
-						responseClaimApproveDto.setMessage("SUCCESS");
+						if(flag.equalsIgnoreCase(StringConstant.ASSIGN_STATUS))
+							responseClaimApproveDto.setMessage(StringConstant.ASSIGN_STATUS);
+						else if(flag.equalsIgnoreCase(StringConstant.REJECT_STATUS))
+							responseClaimApproveDto.setMessage(StringConstant.REJECT_STATUS);
+						else
+							responseClaimApproveDto.setMessage(StringConstant.SUCCESS);
 					}
 				}
 			}
