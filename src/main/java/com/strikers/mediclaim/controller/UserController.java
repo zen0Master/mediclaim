@@ -33,9 +33,8 @@ public class UserController {
 
 	
 	/**
-	 * 
-	 * @param mobileNumber
-	 * @param password
+	 * This method is used to login for the Approver and senior approver
+	 * @param userDto
 	 * @return
 	 */
 	@PostMapping("")
@@ -50,6 +49,12 @@ public class UserController {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 	
+	/**
+	 * This method is used to filter the mediclaim
+	 * based on Policy Limit of Approver
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("/claims")
 	public ResponseEntity<List<PolicyClaim>> policyClaims(@RequestParam("userId") Integer userId){
 		List<PolicyClaim> policyClaims = userService.policyClaims(userId);

@@ -24,6 +24,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private PolicyClaimRepository policyClaimRepository;
 
+	/**
+	 * This method is used to login for the Approver and senior approver
+	 * @param userId
+	 * @return List<PolicyClaim>
+	 */
 	@Override
 	public User userLogin(UserDto userDto) {
 		User user1 = userRepository.findByUsernameAndPasswordAndStatus(userDto.getUsername(), userDto.getPassword(),
@@ -33,6 +38,12 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
+	/**
+	 * This method is used to filter the mediclaim
+	 * based on Policy Limit of Approver
+	 * @param userId
+	 * @return List<PolicyClaim>
+	 */
 	@Override
 	public List<PolicyClaim> policyClaims(Integer userId) {
 		List<PolicyClaim> policyClaimList = null;
