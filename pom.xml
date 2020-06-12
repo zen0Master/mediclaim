@@ -67,7 +67,12 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+<distributionManagement>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://18.191.140.74:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
