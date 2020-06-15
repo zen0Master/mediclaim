@@ -68,8 +68,8 @@
 		</dependency>
 		<dependency>
 			  <groupId>org.flywaydb</groupId>
-			  <artifactId>flyway-maven-plugin</artifactId>
-			  <version>6.4.4</version>
+			  <artifactId>flyway-core</artifactId>
+			  <version>6.3.2</version>
         	</dependency>
 	</dependencies>
 	<distributionManagement>
@@ -103,6 +103,19 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+			    <groupId>org.flywaydb</groupId>
+        		    <artifactId>flyway-maven-plugin</artifactId>
+			    <version>6.4.4</version>
+			    <configuration>
+                              <url>jdbc:mysql://3.7.252.60:3306</url>
+                              <user>claimuser1</user>
+		              <password>H@ckath0n</password>
+			      <schemas>
+                                 <schema>claimdb</schema>
+                              </schemas>
+                           </configuration>	
+			 </plugin>
 
 		</plugins>
 	</build>
