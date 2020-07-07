@@ -12,6 +12,7 @@
 	<groupId>com.strikers</groupId>
 	<artifactId>mediclaim</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>mediclaim</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -72,10 +73,16 @@
 			  <version>6.3.2</version>
         	</dependency>
 	</dependencies>
+	<scm>
+        <connection>scm:https://github.com/baikunthar/mediclaim.git</connection>
+        <url>https://github.com/baikunthar/mediclaim.git</url>
+        <developerConnection>scm:git:https://github.com/baikunthar/mediclaim.git</developerConnection>
+      <tag>HEAD</tag>
+      </scm>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://13.232.3.72:8081/nexus/content/repositories/snapshots</url>
+			<url>http://15.206.210.208:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<build>
@@ -108,7 +115,7 @@
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <url>jdbc:mysql://13.232.3.72:3306</url>
+                              <url>jdbc:mysql://15.206.210.208:3306</url>
                               <user>claimuser1</user>
 		              <password>H@ckath0n</password>
 			      <schemas>
@@ -116,8 +123,20 @@
                               </schemas>
                            </configuration>	
 			 </plugin>
-
-		</plugins>
+		<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-release-plugin</artifactId>
+		<version>3.0.0-M1</version>
+                <configuration>
+		    <tagBase>https://github.com/baikunthar/mediclaim.git/tag</tagBase>
+                     <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                <tagNameFormat>@{project.version}</tagNameFormat>
+               </configuration>
+	    </plugin>
+	</plugins>
 	</build>
 
 </project>
