@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.strikers</groupId>
 	<artifactId>mediclaim</artifactId>
-	<version>0.0.9-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>mediclaim</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -79,11 +79,11 @@
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus</id>
-			<url>http://13.232.233.111:8081/nexus/content/repositories/snapshots</url>
+			<url>http://13.232.223.156:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 		<repository>
              <id>nexus</id>
-             <url>http://13.232.233.111:8081/nexus/content/repositories/releases</url>
+             <url>http://13.232.223.156:8081/nexus/content/repositories/releases</url>
        	     </repository>
 	</distributionManagement>
 	<build>
@@ -116,7 +116,7 @@
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <url>jdbc:mysql://13.232.233.111:3306</url>
+                              <url>jdbc:mysql://13.232.223.156:3306</url>
                               <user>claimuser1</user>
 		              <password>H@ckath0n</password>
 			      <schemas>
