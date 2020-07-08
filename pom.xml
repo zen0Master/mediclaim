@@ -10,7 +10,6 @@
 	<groupId>com.strikers</groupId>
 	<artifactId>mediclaim</artifactId>
 	<version>0.0.9-SNAPSHOT</version>
-	<packaging>pom</packaging>
 	<name>mediclaim</name>
 	<description>Demo project for Spring Boot</description>
 
