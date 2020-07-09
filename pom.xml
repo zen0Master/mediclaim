@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.strikers</groupId>
 	<artifactId>mediclaim</artifactId>
-	<version>0.0.10</version>
+	<version>0.0.11-SNAPSHOT</version>
 	<name>mediclaim</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -79,7 +79,7 @@
         <connection>scm:https://github.com/baikunthar/mediclaim.git</connection>
         <url>https://github.com/baikunthar/mediclaim.git</url>
         <developerConnection>scm:git:https://github.com/baikunthar/mediclaim.git</developerConnection>
-      <tag>0.0.10</tag>
+      <tag>HEAD</tag>
       </scm>
 	<distributionManagement>
 		<snapshotRepository>
