@@ -54,11 +54,7 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>sonar-maven-plugin</artifactId>
-			<version>3.7.0.1746</version>			
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -75,6 +71,13 @@
 		<version>6.3.2</version>
 		</dependency>
 	</dependencies>
+	<properties>
+           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+           <sonar.host.url>http://20.69.233.72:9000</sonar.host.url>
+           <sonar.login>admin</sonar.login>
+           <sonar.password>admin</sonar.password>
+         </properties>
+
 	<scm>
         <connection>scm:https://github.com/salagarsprabu/mediclaim.git</connection>
         <url>https://github.com/baikunthar/mediclaim.git</url>
