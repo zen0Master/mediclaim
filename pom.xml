@@ -81,6 +81,12 @@
         <developerConnection>scm:git:https://github.com/salagarsprabu/mediclaim.git</developerConnection>
       <tag>HEAD</tag>
       </scm>
+      <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.host.url>http://20.69.233.72:9000</sonar.host.url>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin</sonar.password>
+      </properties>
 	<distributionManagement>
 	   <snapshotRepository>
 	     <id>nexus</id>			
