@@ -82,14 +82,14 @@
       <tag>HEAD</tag>
       </scm>
 	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus</id>
-			<url>http://20.51.189.249:8081/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-		<repository>
+	   <snapshotRepository>
+	     <id>nexus</id>			
+	     <url>http://20.69.233.72:8081/nexus/content/repositories/snapshots</url>
+	   </snapshotRepository>
+	   <repository>
              <id>nexus</id>
              <url>http://20.51.189.249:8081/nexus/content/repositories/releases</url>
-       	     </repository>
+       	    </repository>
 	</distributionManagement>
 	<build>
 		<plugins>
