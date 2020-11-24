@@ -16,6 +16,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<sonar.coverage.exclusions>**mediclaim/*,**/config/*,**/entity/*,**/dto/*,**/repository/*,**/exception/*,**/util/*</sonar.coverage.exclusions>
+	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <sonar.host.url>http://20.69.233.72:9000</sonar.host.url>
+                <sonar.login>admin</sonar.login>
+                <sonar.password>admin</sonar.password>         
 	</properties>
 
 	<dependencies>
@@ -70,13 +74,7 @@
 		<artifactId>flyway-core</artifactId>
 		<version>6.3.2</version>
 		</dependency>
-	</dependencies>
-	<properties>
-           <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-           <sonar.host.url>http://20.69.233.72:9000</sonar.host.url>
-           <sonar.login>admin</sonar.login>
-           <sonar.password>admin</sonar.password>
-         </properties>
+	</dependencies>	
 
 	<scm>
         <connection>scm:https://github.com/salagarsprabu/mediclaim.git</connection>
