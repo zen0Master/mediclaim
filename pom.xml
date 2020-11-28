@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.strikers</groupId>
 	<artifactId>mediclaim</artifactId>
-	<version>0.0.17-SNAPSHOT</version>
+	<version>0.0.18-SNAPSHOT</version>
 	<name>mediclaim</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -85,7 +85,7 @@
 	<distributionManagement>
 	   <snapshotRepository>
 	     <id>nexus</id>			
-	     <url>http://20.69.233.72:8081/nexus/content/repositories/snapshots</url>
+	     <url>http://20.51.189.249:8081/nexus/content/repositories/snapshots</url>
 	   </snapshotRepository>
 	   <repository>
              <id>nexus</id>
