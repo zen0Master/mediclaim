@@ -17,9 +17,9 @@
 		<java.version>1.8</java.version>
 		<sonar.coverage.exclusions>**mediclaim/*,**/config/*,**/entity/*,**/dto/*,**/repository/*,**/exception/*,**/util/*</sonar.coverage.exclusions>
 	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <sonar.host.url>http://20.69.233.72:9000</sonar.host.url>
+                <sonar.host.url>http://35.192.17.97:9000</sonar.host.url>
                 <sonar.login>admin</sonar.login>
-                <sonar.password>admin</sonar.password>         
+                <sonar.password>admin123</sonar.password>         
 	</properties>
 
 	<dependencies>
@@ -85,7 +85,7 @@
 	<distributionManagement>
 	   <snapshotRepository>
 	     <id>nexus</id>			
-	     <url>http://20.51.189.249:8081/nexus/content/repositories/snapshots</url>
+	     <url>http://35.192.17.97:8081/nexus/content/repositories/snapshots</url>
 	   </snapshotRepository>
 	   <repository>
              <id>nexus</id>
@@ -122,7 +122,7 @@
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <url>jdbc:mysql:20.51.189.249:3306</url>
+                              <url>jdbc:mysql:35.192.17.97:3306</url>
                               <user>claimuser1</user>
 		              <password>H@ckath0n</password>
 			      <schemas>
