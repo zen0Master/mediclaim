@@ -17,13 +17,12 @@
 		<java.version>1.8</java.version>
 		<sonar.coverage.exclusions>**mediclaim/*,**/config/*,**/entity/*,**/dto/*,**/repository/*,**/exception/*,**/util/*</sonar.coverage.exclusions>
 	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <!-- <sonar.host.url>http://http://40.71.236.183:9000</sonar.host.url>	
+                <sonar.host.url>http://20.62.241.200/:9000</sonar.host.url>	
                 <sonar.login>admin</sonar.login>
                 <sonar.password>admin</sonar.password>
-		-->
-		<sonar.host.url>http://35.192.17.97:9000</sonar.host.url>
+		<!--<sonar.host.url>http://35.192.17.97:9000</sonar.host.url>
 		<sonar.login>admin</sonar.login>
-                <sonar.password>admin123</sonar.password>
+                <sonar.password>admin123</sonar.password> -->
 	</properties>
 
 	<dependencies>
@@ -89,8 +88,8 @@
 	<distributionManagement>
 	   <snapshotRepository>
 	     <id>nexus</id>			
-	     <!-- <url>http://40.71.236.183:8081/nexus/content/repositories/snapshots</url> -->
-             <url>http://35.192.17.97:8081/nexus/content/repositories/snapshots</url>
+	     <url>http://20.62.241.200/nexus/content/repositories/snapshots</url>
+             <!-- <url>http://35.192.17.97:8081/nexus/content/repositories/snapshots</url> -->
 	   </snapshotRepository>
 	   <repository>
              <id>nexus</id>
