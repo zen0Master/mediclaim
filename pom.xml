@@ -17,9 +17,9 @@
 		<java.version>1.8</java.version>
 		<sonar.coverage.exclusions>**mediclaim/*,**/config/*,**/entity/*,**/dto/*,**/repository/*,**/exception/*,**/util/*</sonar.coverage.exclusions>
 	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <sonar.host.url>http://20.62.241.200:9000</sonar.host.url>
+                <sonar.host.url>http://34.72.104.220:9000</sonar.host.url>
                 <sonar.login>admin</sonar.login>
-                <sonar.password>admin</sonar.password>
+                <sonar.password>admin123</sonar.password>
 		<!-- <sonar.host.url>http://35.192.17.97:9000</sonar.host.url>  -->
 		<!-- <sonar.login>admin</sonar.login> -->
                 <!-- <sonar.password>admin123</sonar.password> -->
@@ -87,10 +87,10 @@
       </scm>
 	<distributionManagement>
 	   <snapshotRepository>
-	     <id>nexus</id>			
-	     <url>http://20.62.241.200:8081/nexus/content/repositories/snapshots</url> 
-            <!-- <url>http://35.192.17.97:8081/nexus/content/repositories/snapshots</url> -->
-	   </snapshotRepository>
+             <id>nexus</id>
+               <!-- <url>http://13.126.219.164:8081/nexus/content/repositories/nexus/</url> -->
+               <url>http://34.72.104.220:8081/repository/maven-snapshots</url>
+           </snapshotRepository>
 	   <repository>
              <id>nexus</id>
              <url>http://20.51.189.249:8081/nexus/content/repositories/releases</url>
@@ -121,7 +121,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 			    <groupId>org.flywaydb</groupId>
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
@@ -133,7 +133,7 @@
                                  <schema>claimdb</schema>
                               </schemas>
                            </configuration>	
-			 </plugin>
+			 </plugin> -->
 		<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-release-plugin</artifactId>
