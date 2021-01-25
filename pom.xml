@@ -67,11 +67,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			  <groupId>org.flywaydb</groupId>
 			  <artifactId>flyway-core</artifactId>
 			  <version>6.3.2</version>
-        	</dependency>
+        	</dependency> -->
 		<!-- <dependency>
 		<groupId>org.flywaydb</groupId>
 		<artifactId>flyway-core</artifactId>
