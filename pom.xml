@@ -88,12 +88,12 @@
 	<distributionManagement>
 	   <snapshotRepository>
              <id>nexus</id>
-               <url>http://34.72.104.220:8081/nexus/content/repositories/nexus/</url>
-               <!-- <url>http://34.72.104.220:8081/repository/maven-snapshots</url> -->
+               <!-- <url>http://34.72.104.220:8081/nexus/content/repositories/nexus/</url> -->
+               <url>http://35.194.49.178:8081/repository/maven-snapshots</url>
            </snapshotRepository>
 	   <repository>
              <id>nexus</id>
-             <url>http://20.51.189.249:8081/nexus/content/repositories/releases</url>
+             <url>http://35.194.49.178:8081/nexus/content/repositories/releases</url>
        	    </repository>
 	</distributionManagement>
 	<build>
