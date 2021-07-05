@@ -90,6 +90,15 @@
              <url>http://35.194.49.178:8081/nexus/content/repositories/releases</url>
        	    </repository>
 	</distributionManagement>
+	<reporting>
+          <plugins>
+          <plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <version>6.2.2</version>
+          </plugin>
+          </plugins>
+        </reporting>
 	<build>
 		<plugins>
 			<plugin>
@@ -140,7 +149,19 @@
                     <localCheckout>true</localCheckout>
                 <tagNameFormat>@{project.version}</tagNameFormat>
                </configuration>
-	    </plugin>	   
+	    </plugin>
+	    <plugin>
+              <groupId>org.owasp</groupId>
+              <artifactId>dependency-check-maven</artifactId>
+              <version>6.2.2</version>
+              <executions>
+                  <execution>
+                      <goals>
+                          <goal>check</goal>
+                      </goals>
+                  </execution>
+              </executions>
+            </plugin>
 	</plugins>
 	</build>
 
