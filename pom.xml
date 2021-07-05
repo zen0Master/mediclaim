@@ -150,10 +150,10 @@
                 <tagNameFormat>@{project.version}</tagNameFormat>
                </configuration>
 	    </plugin>
-	    <plugin>
+	    <plugin>             
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
-              <version>6.2.2</version>
+              <version>6.1.6</version>
               <executions>
                   <execution>
                       <goals>
@@ -161,7 +161,17 @@
                       </goals>
                   </execution>
               </executions>
+            <configuration>  
+              <failBuildOnCVSS>11</failBuildOnCVSS>  
+              <!-- Generate all report formats -->  
+              <format>ALL</format>  
+              <!-- Don't use Nexus Analyzer -->  
+              <centralAnalyzerEnabled>false</centralAnalyzerEnabled>  
+              <!-- Am I the latest version? -->  
+              <versionCheckEnabled>true</versionCheckEnabled>  
+             </configuration>  
             </plugin>
+
 	</plugins>
 	</build>
 
