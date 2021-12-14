@@ -15,9 +15,9 @@
 		
 	<properties>
            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-           <sonar.host.url>http://20.204.10.240:9000</sonar.host.url>
+           <sonar.host.url>http://52.149.144.245:9000</sonar.host.url>
            <sonar.login>admin</sonar.login>
-           <sonar.password>admin123</sonar.password>
+           <sonar.password>Admin@1234</sonar.password>
         </properties>
 
 	<dependencies>
@@ -99,19 +99,19 @@
 	</dependencies>	
 
 	<scm>
-        <connection>scm:https://github.com/salagarsprabu/mediclaim.git</connection>
+        <connection>scm:https://github.com/nikhilbandagi/mediclaim.git</connection>
         <url>https://github.com/baikunthar/mediclaim.git</url>
-        <developerConnection>scm:git:https://github.com/salagarsprabu/mediclaim.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/nikhilbandagi/mediclaim.git</developerConnection>
       <tag>HEAD</tag>
       </scm>
 	<distributionManagement>
 	   <snapshotRepository>
              <id>nexus</id>               
-               <url>http://20.204.10.240:8081/repository/maven-snapshots</url>
+               <url>http://52.149.144.245:8081/repository/maven-snapshots</url>
            </snapshotRepository>
 	   <repository>
              <id>nexus</id>
-             <url>http://35.194.49.178:8081/nexus/content/repositories/releases</url>
+             <url>http://52.149.144.245:8081/nexus/content/repositories/releases</url>
        	    </repository>
 	</distributionManagement>
 	<reporting>
@@ -153,7 +153,7 @@
         		    <artifactId>flyway-maven-plugin</artifactId>
 			    <version>6.4.4</version>
 			    <configuration>
-                              <url>jdbc:mysql:20.51.189.249:3306</url>
+                              <url>jdbc:mysql:52.149.144.245:3306</url>
                               <user>claimuser1</user>
 		              <password>H@ckath0n</password>
 			      <schemas>
